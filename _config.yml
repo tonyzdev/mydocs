@@ -7,3 +7,14 @@ url: https://tonyzdev.github.io/mydocs
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+nav_enabled: true
+
+# Enable or disable the site search
+search_enabled: true
+
+# Enable or disable dark mode
+color_scheme: dark
+
+# Enabling dark mode toggle
+enable_dark_mode_switch: true
