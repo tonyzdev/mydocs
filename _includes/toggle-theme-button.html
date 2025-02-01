@@ -1,0 +1,54 @@
+<button class="btn js-toggle-dark-mode" type="button">
+    <span class="toggle-dark-mode-icon">🌓</span>
+    <span class="toggle-dark-mode-text">Toggle Dark Mode</span>
+  </button>
+  
+  <script>
+  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+  const cssFile = document.querySelector('[rel="stylesheet"]');
+  
+  toggleDarkMode.addEventListener('click', function() {
+    if (cssFile.getAttribute('href').includes('light')) {
+      cssFile.setAttribute('href', '{{ "/assets/css/just-the-docs-dark.css" | relative_url }}');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      cssFile.setAttribute('href', '{{ "/assets/css/just-the-docs-light.css" | relative_url }}');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+  
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  if (savedTheme === 'dark') {
+    cssFile.setAttribute('href', '{{ "/assets/css/just-the-docs-dark.css" | relative_url }}');
+  }
+  </script>
+  
+  <style>
+  .btn.js-toggle-dark-mode {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dark .btn.js-toggle-dark-mode {
+    background-color: #2f3136;
+    border-color: #40444b;
+    color: #ffffff;
+  }
+  
+  .toggle-dark-mode-icon {
+    font-size: 1.2rem;
+  }
+  
+  .toggle-dark-mode-text {
+    font-size: 0.9rem;
+  }
+  </style>
+  
